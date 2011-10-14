@@ -1,0 +1,61 @@
+#define T_IMMHEX 313
+#define T_IMMBIN 314
+#define T_IMM    315
+#define T_INSTR  316
+#define T_LABEL  317
+#define IN_ADC 258 // add with carry
+#define IN_AND 259 //and (with accumulator)
+#define IN_ASL 260 //arithmetic shift left
+#define IN_BCC 261 //branch on carry clear
+#define IN_BCS 262 //branch on carry set
+#define IN_BEQ 263 //branch on equal (zero set)
+#define IN_BIT 264 //bit test
+#define IN_BMI 265 //branch on minus (negative set)
+#define IN_BNE 266 //branch on not equal (zero clear)
+#define IN_BPL 267 //branch on plus (negative clear)
+#define IN_BRK 268 //interrupt
+#define IN_BVC 269 //branch on overflow clear
+#define IN_BVS 270 //branch on overflow set
+#define IN_CLC 271 //clear carry
+#define IN_CLD 272 //clear decimal
+#define IN_CLI 273 //clear interrupt disable
+#define IN_CLV 274 //clear overflow
+#define IN_CMP 275 //compare (with accumulator)
+#define IN_CPX 276 //compare with X
+#define IN_CPY 277 //compare with Y
+#define IN_DEC 278 //decrement
+#define IN_DEX 279 //decrement X
+#define IN_DEY 280 //decrement Y
+#define IN_EOR 281 //exclusive or (with accumulator)
+#define IN_INC 282 //increment
+#define IN_INX 283 //increment X
+#define IN_INY 284 //increment Y
+#define IN_JMP 285 //jump
+#define IN_JSR 286 //jump subroutine
+#define IN_LDA 287 //load accumulator
+#define IN_LDY 288 //load X
+#define IN_LSR 289 //logical shift right
+#define IN_NOP 290 //no operation
+#define IN_ORA 291 //or with accumulator
+#define IN_PHA 292 //push accumulator
+#define IN_PHP 293 //push processor status (SR)
+#define IN_PLA 294 //pull accumulator
+#define IN_PLP 295 //pull processor status (SR)
+#define IN_ROL 296 //rotate left
+#define IN_ROR 297 //rotate right
+#define IN_RTI 298 //return from interrupt
+#define IN_RTS 299 //return from subroutine
+#define IN_SBC 300 //subtract with carry
+#define IN_SEC 301 //set carry
+#define IN_SED 302 //set decimal
+#define IN_SEI 303 //set interrupt disable
+#define IN_STA 304 //store accumulator
+#define IN_STX 305 //store X
+#define IN_STY 306 //store Y
+#define IN_TAX 307 //transfer accumulator to X
+#define IN_TAY 308 //transfer accumulator to Y
+#define IN_TSX 309 //transfer stack pointer to X
+#define IN_TXA 310 //transfer X to accumulator
+#define IN_TXS 311 //transfer X to stack pointer
+#define IN_TYA 312 //transfer Y to accumulator
+

@@ -1,0 +1,19 @@
+----------------------------------------------------
+Nessembler
+----------------------------------------------------
+This package currently only works on Linux development machines. It may work on Mac, but it is untested.
+
+Prerequisite packages:
+Scons
+Bison (msys-bison)
+Flex lexer (msys-flex)
+MSYS (for Windows)
+
+To build, from the main directory, open a terminal or MinGW shell and type:
+
+scons
+
+To compile the metroid rom, run the following command from any prompt:
+
+./nessembler -i metroid/metroid.asm -o metroid.nes
+
