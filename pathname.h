@@ -5,8 +5,7 @@
 // Implements OS-agnostic path name parsing
 ///
 
-const char* getPathSeperator();
-int getBaseName(const char* path);
-int getCurrentDirectory(char* inputPath, int buf_len);
+int getCurrentDirectory(char* output_path, int buf_len);
+int getDirectory(char* output_path, char* input_path);
 #endif
 

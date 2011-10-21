@@ -1,12 +1,12 @@
 ----------------------------------------------------
 Nessembler
 ----------------------------------------------------
-This package currently only works on Linux development machines. It may work on Mac, but it is untested.
+This package currently works on Windows Linux development machines. It may work on Mac, but it is untested.
 
 Prerequisite packages:
 Scons
-Bison (msys-bison)
-Flex lexer (msys-flex)
+Bison
+Flex lexer
 MSYS (for Windows)
 
 To build, from the main directory, open a terminal or MinGW shell and type:
@@ -17,3 +17,17 @@ To compile the metroid rom, run the following command from any prompt:
 
 ./nessembler -i metroid/metroid.asm -o metroid.nes
 
+The source file is "metroid/metroid.asm". The binary "metroid.nes" can be run in any NES emulator.
+
+----------------------------------------------------
+Windows Notes
+----------------------------------------------------
+For Windows, you will have to install GnuWin32's flex and bison packages from here: http://gnuwin32.sourceforge.net/packages.html
+Copy the "FlexLexer.h" header file and the "libfl.a, liby.a" libraries into the MinGW lib directory.  This fixes the 'CFile' attribute
+error that you may get in SCons. Then, you will also have to install flex and bison into MinGW in order for the actual compile to work.
+From MinGW Shell, type the following two commands:
+
+mingw-get install msys-flex
+mingw-get install msys-bison
+
+This should get it to work.  If not, feel free to contact me.

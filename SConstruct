@@ -1,6 +1,7 @@
+import os
 import re
 
-env = Environment(CPPFLAGS = ["-g", "-DDEBUG"])
+env = Environment(ENV = os.environ, CPPFLAGS = ["-g", "-DDEBUG"])
 env.VariantDir("obj/", ".", duplicate = 0)
 
 target = "nessembler"

@@ -86,11 +86,10 @@ int main(int argc, char* argv[])
             fprintf(stderr, "nessembler: could not parse file path '%s'\n", inputFileName);
             return 1;
         }
-        strcat(inputPath, getPathSeperator());
+        //Append directory of input file to current directory
         strcat(inputPath, inputFileName);
-        inputPath[getBaseName(inputPath)] = 0; //Truncate file name
-
-        //printf("input path: %s\n", inputPath);
+        getDirectory(inputPath, inputPath);
+        //printf("input path: '%s' '%s'\n", inputFileName, inputPath);
 
         FILE* inputFile = fopen(inputFileName, "r");
         if(!inputFile)

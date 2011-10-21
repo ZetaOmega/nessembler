@@ -6,43 +6,46 @@
 // Implements OS-agnostic path name parsing
 ///
 
-const char* getPathSeperator()
+#ifdef WIN32
+    #include <Windows.h>
+    static const char path_sep = '\\';
+#else
+    #include <unistd.h>
+    static const char path_sep = '/';
+#endif
+
+int getCurrentDirectory(char* output_path, int buf_len)
 {
-    #ifdef _WIN32
-        return "\\";
+    char current_cmd[512];
+    #ifdef WIN32
+        GetModuleFileName(NULL, current_cmd, sizeof(current_cmd));
     #else
-        return "/";
+        char procsstr[512];
+        sprintf(proc_name, "/proc/%u/exe", getpid());
+        readlink(procsstr, current_cmd, sizeof(current_cmd));
     #endif
-}
-int getBaseName(const char* path)
-{
-    #ifdef _WIN32
-        char pathSep = '\\';
-    #else
-        char pathSep = '/';
-    #endif
-    int i = strlen(path);
-    for(; i >= 0; i--)
-    {
-        if(path[i] == pathSep)
-        {
-            return i + 1;
-        }
-    }
+    //printf("current command: '%s'\n", current_cmd);
+    getDirectory(output_path, current_cmd);
+    //printf("current path: '%s'\n", output_path);
     return 0;
 }
-int getCurrentDirectory(char* inputPath, int buf_len)
+int getDirectory(char* output_path, char* input_path)
 {
-    #ifdef WINDOWS
-        #include <direct.h>
-        #define GetCurrentDir    _getcwd
-    #else
-        #include <unistd.h>
-        #define GetCurrentDir    getcwd
-    #endif
-    if (!GetCurrentDir(inputPath, buf_len))
+    int i = strlen(input_path);
+    char c;
+    char prev_c = 0;
+    for(; i >= 0; i--)
     {
-        return 1;
+        c = input_path[i];
+        if((c == '/') ||
+            ((c == '\\') &&(prev_c != ' ')))
+        {
+            strncpy(output_path, input_path, i + 1);
+            output_path[i + 1] = 0;
+            return 0;
+        }
+        prev_c = c;
     }
+    strcpy(output_path, "");
     return 0;
 }
