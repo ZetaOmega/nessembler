@@ -22,12 +22,15 @@ The source file is "metroid/metroid.asm". The binary "metroid.nes" can be run in
 ----------------------------------------------------
 Windows Notes
 ----------------------------------------------------
-For Windows, you will have to install GnuWin32's flex and bison packages from here: http://gnuwin32.sourceforge.net/packages.html
-Copy the "FlexLexer.h" header file and the "libfl.a, liby.a" libraries into the MinGW lib directory.  This fixes the 'CFile' attribute
-error that you may get in SCons. Then, you will also have to install flex and bison into MinGW in order for the actual compile to work.
-From MinGW Shell, type the following two commands:
+For Windows, you will have to install GnuWin32's flex and bison packages from here:
 
-mingw-get install msys-flex
-mingw-get install msys-bison
+http://gnuwin32.sourceforge.net/packages.html
 
-This should get it to work.  If not, feel free to contact me.
+Copy the "FlexLexer.h" header file into the MinGW include directory and the "libfl.a, liby.a" libraries into
+the MinGW lib directory. This fixes the 'CFile' attribute error that you may get in SCons. Then, you will also
+have to install flex and bison into MinGW in order for the actual compile to work. From MinGW Shell, type the
+following command:
+
+mingw-get install msys-flex msys-bison
+
+This should get it to work. If not, feel free to contact me.
