@@ -21,7 +21,7 @@ int getCurrentDirectory(char* output_path, int buf_len)
         GetModuleFileName(NULL, current_cmd, sizeof(current_cmd));
     #else
         char procsstr[512];
-        sprintf(proc_name, "/proc/%u/exe", getpid());
+        sprintf(procsstr, "/proc/%u/exe", getpid());
         readlink(procsstr, current_cmd, sizeof(current_cmd));
     #endif
     //printf("current command: '%s'\n", current_cmd);
